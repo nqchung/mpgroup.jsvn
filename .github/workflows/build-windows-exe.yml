@@ -50,5 +50,5 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mp-crm-windows
+          name: mpgroup.jsvn-windows
           path: releases/windows
