@@ -14,14 +14,14 @@
 - Datetime response format: `dd-mm-yyyy hh:mm:ss`
 
 ## Default Account
-- Username: `admin`
-- Password: `123456`
+- Username: `mpgroup_ad`
+- Password: `.Minhphuong2026`
 
 ## Run Backend (Conda)
 ```bash
-cd /home/namng/Desktop/workspace/mp_crm
-conda create -y -n mp_crm python=3.11
-conda activate mp_crm
+cd /home/namng/Desktop/workspace/mpgroup.jsvn
+conda create -y -n mpgroup.jsvn python=3.11
+conda activate mpgroup.jsvn
 pip install -r backend/requirements.txt
 cd backend
 python scripts/init_db.py
@@ -30,7 +30,7 @@ python manage.py runserver 0.0.0.0:2210
 
 ## Run Frontend
 ```bash
-cd /home/namng/Desktop/workspace/mp_crm/frontend
+cd /home/namng/Desktop/workspace/mpgroup.jsvn/frontend
 npm install
 npm run dev
 ```
@@ -43,5 +43,5 @@ Backend URL: `http://localhost:2210`
 curl -s http://localhost:2210/api/health
 curl -s -X POST http://localhost:2210/api/auth/login \
   -H 'Content-Type: application/json' \
-  -d '{"username":"admin","password":"123456"}'
+  -d '{"username":"mpgroup_ad","password":".Minhphuong2026"}'
 ```
