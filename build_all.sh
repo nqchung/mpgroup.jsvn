@@ -42,14 +42,14 @@ pyinstaller \
   --noconfirm \
   --clean \
   --onefile \
-  --name MP_CRM \
+  --name mpgroup.jsvn \
   --paths "$BACKEND_DIR" \
   --add-data "$FRONTEND_DIR/dist:web" \
   launcher.py
 popd >/dev/null
 
-cp "$BACKEND_DIR/dist/MP_CRM" "$LINUX_RELEASE_DIR/MP_CRM"
-chmod +x "$LINUX_RELEASE_DIR/MP_CRM"
+cp "$BACKEND_DIR/dist/mpgroup.jsvn" "$LINUX_RELEASE_DIR/mpgroup.jsvn"
+chmod +x "$LINUX_RELEASE_DIR/mpgroup.jsvn"
 if [[ -f "$BACKEND_DIR/data/app.db" ]]; then
   cp "$BACKEND_DIR/data/app.db" "$LINUX_RELEASE_DIR/data/app.db"
 else
@@ -71,14 +71,14 @@ if command -v docker >/dev/null 2>&1; then
     -v "$ROOT_DIR:/src" \
     -w /src/backend \
     "$WIN_DOCKER_IMAGE" \
-    -lc "python -m pip install -r requirements.txt pyinstaller && pyinstaller --noconfirm --clean --onefile --name MP_CRM --paths /src/backend --add-data '/src/frontend/dist;web' launcher.py" \
+    -lc "python -m pip install -r requirements.txt pyinstaller && pyinstaller --noconfirm --clean --onefile --name mpgroup.jsvn --paths /src/backend --add-data '/src/frontend/dist;web' launcher.py" \
     2>&1 | tee "$WIN_BUILD_LOG"
   DOCKER_RC=$?
   set -e
-  if [[ $DOCKER_RC -eq 0 && -f "$BACKEND_DIR/dist/windows/MP_CRM.exe" ]]; then
-    cp "$BACKEND_DIR/dist/windows/MP_CRM.exe" "$WINDOWS_RELEASE_DIR/MP_CRM.exe"
-  elif [[ $DOCKER_RC -eq 0 && -f "$BACKEND_DIR/dist/MP_CRM.exe" ]]; then
-    cp "$BACKEND_DIR/dist/MP_CRM.exe" "$WINDOWS_RELEASE_DIR/MP_CRM.exe"
+  if [[ $DOCKER_RC -eq 0 && -f "$BACKEND_DIR/dist/windows/mpgroup.jsvn.exe" ]]; then
+    cp "$BACKEND_DIR/dist/windows/mpgroup.jsvn.exe" "$WINDOWS_RELEASE_DIR/mpgroup.jsvn.exe"
+  elif [[ $DOCKER_RC -eq 0 && -f "$BACKEND_DIR/dist/mpgroup.jsvn.exe" ]]; then
+    cp "$BACKEND_DIR/dist/mpgroup.jsvn.exe" "$WINDOWS_RELEASE_DIR/mpgroup.jsvn.exe"
   else
     echo "[WARN] Docker Windows build failed. See log: $WIN_BUILD_LOG"
     echo "[INFO] Current Docker image: $WIN_DOCKER_IMAGE"
@@ -107,11 +107,11 @@ echo "[5/6] Write run notes"
 cat > "$RELEASE_DIR/README.txt" <<'TXT'
 Linux:
 - cd releases/linux
-- ./MP_CRM
+- ./mpgroup.jsvn
 
 Windows:
 - cd releases/windows
-- run MP_CRM.exe
+- run mpgroup.jsvn.exe
 
 Data persistence:
 - DB file is external at data/app.db
@@ -119,5 +119,5 @@ Data persistence:
 TXT
 
 echo "[6/6] Done"
-echo "Linux output:   $LINUX_RELEASE_DIR/MP_CRM"
-echo "Windows output: $WINDOWS_RELEASE_DIR/MP_CRM.exe (if build succeeded)"
+echo "Linux output:   $LINUX_RELEASE_DIR/mpgroup.jsvn"
+echo "Windows output: $WINDOWS_RELEASE_DIR/mpgroup.jsvn.exe (if build succeeded)"
