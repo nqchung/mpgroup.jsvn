@@ -1,0 +1,69 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Django / local data
+backend/media/
+backend/staticfiles/
+backend/*.sqlite3
+backend/*.db
+*.sqlite3
+*.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build / cache
+coverage/
+*.log
+.tmp/
+tmp/
+releases/
+backend/build/
+backend/dist/
+backend/*.spec
+frontend/tsconfig.tsbuildinfo
+
+# Keep DB + media snapshots in git (private repo use-case)
+!backend/data/app.db
+!backend/media/
+!backend/media/**
+
+# Keep only release data/media (not executables/logs)
+!releases/
+releases/*
+!releases/linux/
+!releases/windows/
+releases/linux/*
+!releases/linux/data/
+!releases/linux/media/
+!releases/linux/data/**
+!releases/linux/media/**
+releases/windows/*
+!releases/windows/data/
+!releases/windows/media/
+!releases/windows/data/**
+!releases/windows/media/**
