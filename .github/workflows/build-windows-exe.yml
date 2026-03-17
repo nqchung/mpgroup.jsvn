@@ -37,14 +37,14 @@ jobs:
       - name: Build Windows EXE
         working-directory: backend
         run: |
-          pyinstaller --noconfirm --clean --onefile --name MP_CRM --paths . --add-data "..\frontend\dist;web" launcher.py
+          pyinstaller --noconfirm --clean --onefile --name MPGROUP.JSVN --paths . --add-data "..\frontend\dist;web" launcher.py
 
       - name: Prepare Release Folder
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Path releases/windows/data -Force | Out-Null
           New-Item -ItemType Directory -Path releases/windows/media -Force | Out-Null
-          Copy-Item backend/dist/MP_CRM.exe releases/windows/MP_CRM.exe -Force
+          Copy-Item backend/dist/MPGROUP.JSVN.exe releases/windows/MPGROUP.JSVN.exe -Force
           if (Test-Path backend/data/app.db) { Copy-Item backend/data/app.db releases/windows/data/app.db -Force }
 
       - name: Upload Artifact
