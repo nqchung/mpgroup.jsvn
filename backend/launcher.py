@@ -10,12 +10,12 @@ def main() -> None:
     from waitress import serve
     from config.wsgi import application
 
-    host = os.environ.get("MP_CRM_HOST", "127.0.0.1")
+    host = os.environ.get("MPGROUP.JSVN_HOST", "127.0.0.1")
     port = 2210
     browser_host = "127.0.0.1" if host in {"0.0.0.0", "::"} else host
     url = f"http://{browser_host}:{port}"
-    print(f"[MP_CRM] Starting on {url}")
-    print(f"[MP_CRM] Open in browser: {url}")
+    print(f"[MPGROUP.JSVN] Starting on {url}")
+    print(f"[MPGROUP.JSVN] Open in browser: {url}")
     serve(application, host=host, port=port, threads=8)
 
 
