@@ -1246,20 +1246,6 @@ export default function ProductsPage({ token, notify, t }: Props) {
                         <td>{formatQty2(toFiniteNumber(s.qty_m_or_m2))}</td>
                         <td>{formatWeight5(getSpecWt(s))}</td>
                     </tr>,
-                    <tr className="spec-note-row" key={`${s.id}-note`}>
-                        <td colSpan={showLamiColumnInSpecs ? 4 : 3}>
-                          <div className="spec-note-wrap">
-                            <span>{t('lblOtherNote')}:</span>
-                            <input
-                              value={specEdits[s.id]?.other_note ?? (s.other_note || '')}
-                              onChange={(e) => updateSpecEditField(s.id, 'other_note', e.target.value)}
-                              onBlur={() => void saveSpecInline(s)}
-                              placeholder={t('lblOtherNote')}
-                            />
-                          </div>
-                        </td>
-                        <td colSpan={showLamiColumnInSpecs ? 6 : 5} />
-                    </tr>,
                   ])) : <tr><td className="empty-cell" colSpan={showLamiColumnInSpecs ? 10 : 9}>{t('noData')}</td></tr>}
                   {specs.length > 0 ? (
                     <tr className="summary-row">
