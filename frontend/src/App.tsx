@@ -347,7 +347,7 @@ export default function App() {
             <aside className="sidebar">
               <div className="sidebar-brand">
                 <img src="/logo-mpg.js.svg" alt="JINSUNG VINA" className="sidebar-logo" />
-                <div className="sidebar-brand-text">MINH PHUONG GROUP</div>
+                <div className="sidebar-brand-text">JINSUNG VINA</div>
               </div>
               <nav className="sidebar-nav">
                 <button className={`side-btn ${pathname === '/stats' ? 'active' : ''}`} type="button" onClick={() => openRoute('/stats')} onAuxClick={onRouteAuxClick('/stats')}>
