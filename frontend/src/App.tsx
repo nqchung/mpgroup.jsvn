@@ -259,7 +259,7 @@ export default function App() {
           <form className="login-card" onSubmit={login}>
             <div className="login-brand">
               <span className="login-badge">
-                <img src="/logo-mpg.js.svg" alt="MINH PHUONG GROUP" className="brand-logo-small" />
+                <img src="/logo-mpg.js.svg" alt="JINSUNG VINA" className="brand-logo-small" />
                 JINSUNG VINA
               </span>
               <h1>{tr('loginTitle')}</h1>
