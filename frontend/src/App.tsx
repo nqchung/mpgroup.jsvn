@@ -346,7 +346,7 @@ export default function App() {
           <div className="main-layout">
             <aside className="sidebar">
               <div className="sidebar-brand">
-                <img src="/logo-mpg.svg" alt="MINH PHUONG GROUP" className="sidebar-logo" />
+                <img src="/logo-mpg.js.svg" alt="JINSUNG VINA" className="sidebar-logo" />
                 <div className="sidebar-brand-text">MINH PHUONG GROUP</div>
               </div>
               <nav className="sidebar-nav">
